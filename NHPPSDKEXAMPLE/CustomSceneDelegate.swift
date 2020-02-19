@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+@available(iOS 13, *)
 public final class CustomSceneDelegate: UIResponder, UIWindowSceneDelegate {
     @available(iOS 13, *)
     public func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
