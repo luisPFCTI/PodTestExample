@@ -8,9 +8,9 @@
 
 import Foundation
 import UIKit
-@available(iOS 13, *)
+
 public final class CustomSceneDelegate: UIResponder, UIWindowSceneDelegate {
-    @available(iOS 13, *)
+    @available(iOS 13.0, *)
     public func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         for context in URLContexts {
             print("url: \(context.url.absoluteURL)")
