@@ -57,15 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F6872DE223FC577600E66AA9"
-            BuildableName = "NHPPSDKEXAMPLE.framework"
-            BlueprintName = "NHPPSDKEXAMPLE"
+            BlueprintIdentifier = "F6872E0023FC58CC00E66AA9"
+            BuildableName = "NHPPExamplesSDK.app"
+            BlueprintName = "NHPPExamplesSDK"
             ReferencedContainer = "container:NHPPSDKEXAMPLE.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
