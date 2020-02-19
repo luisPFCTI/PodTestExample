@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-class CustomSceneDelegate: UIResponder, UIWindowSceneDelegate {
-    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+public final class CustomSceneDelegate: UIResponder, UIWindowSceneDelegate {
+    public func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         for context in URLContexts {
             print("url: \(context.url.absoluteURL)")
             print("scheme: \(context.url.scheme)")
