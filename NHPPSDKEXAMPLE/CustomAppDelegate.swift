@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-public final class CustomAppDelegate: UIResponder, UIApplicationDelegate {
-    public func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+open class CustomAppDelegate: UIResponder, UIApplicationDelegate {
+    open func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
         return true
     }
