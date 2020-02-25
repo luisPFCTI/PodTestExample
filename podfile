@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '12.4'
+target 'NHPPSDKEXAMPLE' do
+use_frameworks!
+   
+ pod 'Alamofire'
+end
+
+target 'NHPPSDKEXAMPLETests' do
+  use_frameworks!
+ pod 'Alamofire'
+end

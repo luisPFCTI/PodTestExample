@@ -1,16 +1,9 @@
-//
-//  CustomSceneDelegate.swift
-//  NHPPSDKEXAMPLE
-//
-//  Created by Luis Gutiérrez on 2/18/20.
-//  Copyright © 2020 Luis Gutiérrez. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
 @available(iOS 13.0, *)
 open class CustomSceneDelegate: UIResponder, UIWindowSceneDelegate {
+    
     open func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         for context in URLContexts {
             print("url: \(context.url.absoluteURL)")
