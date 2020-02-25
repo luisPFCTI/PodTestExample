@@ -1,5 +1,4 @@
 import XCTest
-import Alamofire
 @testable import NHPPSDKEXAMPLE
 
 class NHPPSDKEXAMPLETests: XCTestCase {
