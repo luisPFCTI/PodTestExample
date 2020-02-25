@@ -3,13 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34EE79A177793AB8B95A0481 /* Pods_NHPPSDKEXAMPLE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD45E83054D5664221EB74E5 /* Pods_NHPPSDKEXAMPLE.framework */; };
-		E2371255C80AD844A53EC84F /* Pods_NHPPSDKEXAMPLETests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D1E3BB57C33513A8928CF0 /* Pods_NHPPSDKEXAMPLETests.framework */; };
 		F679517E24059BD20003B006 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F679517D24059BD20003B006 /* Manager.swift */; };
+		F67951872405C3DD0003B006 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F67951852405C1D80003B006 /* Alamofire.framework */; };
+		F67951882405C3DD0003B006 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F67951852405C1D80003B006 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F6872DED23FC577600E66AA9 /* NHPPSDKEXAMPLE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6872DE323FC577600E66AA9 /* NHPPSDKEXAMPLE.framework */; };
 		F6872DF223FC577600E66AA9 /* NHPPSDKEXAMPLETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6872DF123FC577600E66AA9 /* NHPPSDKEXAMPLETests.swift */; };
 		F6872DF423FC577600E66AA9 /* NHPPSDKEXAMPLE.h in Headers */ = {isa = PBXBuildFile; fileRef = F6872DE623FC577600E66AA9 /* NHPPSDKEXAMPLE.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,14 +33,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F67951892405C3DD0003B006 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F67951882405C3DD0003B006 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		02AE9F06F259CFC0823932DE /* Pods-NHPPSDKEXAMPLE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHPPSDKEXAMPLE.debug.xcconfig"; path = "Target Support Files/Pods-NHPPSDKEXAMPLE/Pods-NHPPSDKEXAMPLE.debug.xcconfig"; sourceTree = "<group>"; };
-		28D1E3BB57C33513A8928CF0 /* Pods_NHPPSDKEXAMPLETests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NHPPSDKEXAMPLETests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		29F3C7AF3EFF38252B747B61 /* Pods-NHPPSDKEXAMPLETests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHPPSDKEXAMPLETests.debug.xcconfig"; path = "Target Support Files/Pods-NHPPSDKEXAMPLETests/Pods-NHPPSDKEXAMPLETests.debug.xcconfig"; sourceTree = "<group>"; };
-		48328997C5AAECA1DE012664 /* Pods-NHPPSDKEXAMPLE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHPPSDKEXAMPLE.release.xcconfig"; path = "Target Support Files/Pods-NHPPSDKEXAMPLE/Pods-NHPPSDKEXAMPLE.release.xcconfig"; sourceTree = "<group>"; };
-		6515D80A1FCFE03F22710D1C /* Pods-NHPPSDKEXAMPLETests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NHPPSDKEXAMPLETests.release.xcconfig"; path = "Target Support Files/Pods-NHPPSDKEXAMPLETests/Pods-NHPPSDKEXAMPLETests.release.xcconfig"; sourceTree = "<group>"; };
-		CD45E83054D5664221EB74E5 /* Pods_NHPPSDKEXAMPLE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NHPPSDKEXAMPLE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F679517D24059BD20003B006 /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		F67951852405C1D80003B006 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = SOURCE_ROOT; };
 		F6872DE323FC577600E66AA9 /* NHPPSDKEXAMPLE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NHPPSDKEXAMPLE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6872DE623FC577600E66AA9 /* NHPPSDKEXAMPLE.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NHPPSDKEXAMPLE.h; sourceTree = "<group>"; };
 		F6872DE723FC577600E66AA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34EE79A177793AB8B95A0481 /* Pods_NHPPSDKEXAMPLE.framework in Frameworks */,
+				F67951872405C3DD0003B006 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +82,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6872DED23FC577600E66AA9 /* NHPPSDKEXAMPLE.framework in Frameworks */,
-				E2371255C80AD844A53EC84F /* Pods_NHPPSDKEXAMPLETests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,35 +95,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4DB803630B381B999F6B0212 /* Pods */ = {
+		F67951832405C1AE0003B006 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				02AE9F06F259CFC0823932DE /* Pods-NHPPSDKEXAMPLE.debug.xcconfig */,
-				48328997C5AAECA1DE012664 /* Pods-NHPPSDKEXAMPLE.release.xcconfig */,
-				29F3C7AF3EFF38252B747B61 /* Pods-NHPPSDKEXAMPLETests.debug.xcconfig */,
-				6515D80A1FCFE03F22710D1C /* Pods-NHPPSDKEXAMPLETests.release.xcconfig */,
+				F67951842405C1BE0003B006 /* Alamofire-framework */,
 			);
-			path = Pods;
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
-		CE70E1C8E3A468F4A31DE240 /* Frameworks */ = {
+		F67951842405C1BE0003B006 /* Alamofire-framework */ = {
 			isa = PBXGroup;
 			children = (
-				CD45E83054D5664221EB74E5 /* Pods_NHPPSDKEXAMPLE.framework */,
-				28D1E3BB57C33513A8928CF0 /* Pods_NHPPSDKEXAMPLETests.framework */,
+				F67951852405C1D80003B006 /* Alamofire.framework */,
 			);
-			name = Frameworks;
+			path = "Alamofire-framework";
 			sourceTree = "<group>";
 		};
 		F6872DD923FC577600E66AA9 = {
 			isa = PBXGroup;
 			children = (
+				F67951832405C1AE0003B006 /* Frameworks */,
 				F6872DE523FC577600E66AA9 /* NHPPSDKEXAMPLE */,
 				F6872DF023FC577600E66AA9 /* NHPPSDKEXAMPLETests */,
 				F6872E0223FC58CC00E66AA9 /* NHPPExamplesSDK */,
 				F6872DE423FC577600E66AA9 /* Products */,
-				4DB803630B381B999F6B0212 /* Pods */,
-				CE70E1C8E3A468F4A31DE240 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,11 +185,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6872DF723FC577600E66AA9 /* Build configuration list for PBXNativeTarget "NHPPSDKEXAMPLE" */;
 			buildPhases = (
-				3FDA3BE804D5E799E2492EA7 /* [CP] Check Pods Manifest.lock */,
 				F6872DDE23FC577600E66AA9 /* Headers */,
 				F6872DDF23FC577600E66AA9 /* Sources */,
 				F6872DE023FC577600E66AA9 /* Frameworks */,
 				F6872DE123FC577600E66AA9 /* Resources */,
+				F67951892405C3DD0003B006 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -201,11 +204,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6872DFA23FC577600E66AA9 /* Build configuration list for PBXNativeTarget "NHPPSDKEXAMPLETests" */;
 			buildPhases = (
-				A94D2A49FDA6DDA9EBC130D9 /* [CP] Check Pods Manifest.lock */,
 				F6872DE823FC577600E66AA9 /* Sources */,
 				F6872DE923FC577600E66AA9 /* Frameworks */,
 				F6872DEA23FC577600E66AA9 /* Resources */,
-				0C93EFCCD1B0FCA77A21521D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -302,70 +303,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		0C93EFCCD1B0FCA77A21521D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NHPPSDKEXAMPLETests/Pods-NHPPSDKEXAMPLETests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NHPPSDKEXAMPLETests/Pods-NHPPSDKEXAMPLETests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NHPPSDKEXAMPLETests/Pods-NHPPSDKEXAMPLETests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3FDA3BE804D5E799E2492EA7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NHPPSDKEXAMPLE-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A94D2A49FDA6DDA9EBC130D9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NHPPSDKEXAMPLETests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F6872DDF23FC577600E66AA9 /* Sources */ = {
@@ -550,7 +487,6 @@
 		};
 		F6872DF823FC577600E66AA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 02AE9F06F259CFC0823932DE /* Pods-NHPPSDKEXAMPLE.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -558,6 +494,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = NHPPSDKEXAMPLE/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -576,7 +516,6 @@
 		};
 		F6872DF923FC577600E66AA9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 48328997C5AAECA1DE012664 /* Pods-NHPPSDKEXAMPLE.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -584,6 +523,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = NHPPSDKEXAMPLE/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -601,7 +544,6 @@
 		};
 		F6872DFB23FC577600E66AA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29F3C7AF3EFF38252B747B61 /* Pods-NHPPSDKEXAMPLETests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -620,7 +562,6 @@
 		};
 		F6872DFC23FC577600E66AA9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6515D80A1FCFE03F22710D1C /* Pods-NHPPSDKEXAMPLETests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
