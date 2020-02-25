@@ -1,18 +1,12 @@
-//
-//  NHPPSDKEXAMPLETests.swift
-//  NHPPSDKEXAMPLETests
-//
-//  Created by Luis Gutiérrez on 2/18/20.
-//  Copyright © 2020 Luis Gutiérrez. All rights reserved.
-//
-
 import XCTest
 @testable import NHPPSDKEXAMPLE
 
 class NHPPSDKEXAMPLETests: XCTestCase {
 
+    var nhppManager: NHPPConnectionManager!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.nhppManager = NHPPConnectionManager()
     }
 
     override func tearDown() {
@@ -20,8 +14,7 @@ class NHPPSDKEXAMPLETests: XCTestCase {
     }
 
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertNil(nhppManager.activateToken(customerId: "304903007"))
     }
 
     func testPerformanceExample() {
