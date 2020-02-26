@@ -13,17 +13,14 @@ public class Response {
 
 class NHPPConnectionManager {
     public func activateToken(customerId: String) -> Bool {
-        var activatedToken = false
-        self.activateToken(customerId: customerId, onSuccess: { response in
-            if response?.returnCode == "00" {
-                activatedToken = true
-            }
-        }, onError: { error in
-            if error?.returnCode != "00" {
-                activatedToken = false
-            }
-        })
-        return activatedToken
+            self.activateToken(customerId: customerId, onSuccess: { response in
+                if response?.returnCode == "00" {
+                }
+            }, onError: { error in
+                if error?.returnCode != "00" {
+                }
+            })
+        return true
     }
     
     private func activateToken(customerId: String, onSuccess
@@ -44,7 +41,8 @@ class NHPPConnectionManager {
         ]
         var requestId: String?
         var returnCode: String?
-        AF.request("https://proxybilletera-cert.pfcti.com/activetoken",method: .post, parameters: parameters, headers: headers).responseJSON(completionHandler: { response in
+        let semaphore = DispatchSemaphore(value: 0)
+        let ok = AF.request("https://proxybilletera-cert.pfcti.com/activetoken",method: .post, parameters: parameters, headers: headers).response(completionHandler: { response in
             debugPrint(response)
             print("holalucho")
             debugPrint("holalucho")
@@ -55,12 +53,16 @@ class NHPPConnectionManager {
                 returnCode = dictionary.value(forKey: "returnCode") as? String
                 let response = Response(requestID: requestId ?? "", returnCode: returnCode ?? "")
                 successBlock(response)
+                semaphore.signal()
             case .failure(let error):
                 requestId = "403"
                 returnCode = error.localizedDescription
                 let response = Response(requestID: requestId ?? "", returnCode: returnCode ?? "")
                 errorBlock(response)
+                semaphore.signal()
             }
         })
+        _ = semaphore.wait(wallTimeout: .distantFuture)
+        print(ok)
     }
 }

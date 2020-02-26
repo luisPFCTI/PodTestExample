@@ -14,7 +14,7 @@ class NHPPSDKEXAMPLETests: XCTestCase {
     }
 
     func testExample() {
-        XCTAssertNil(nhppManager.activateToken(customerId: "304903007"))
+        XCTAssert(nhppManager.activateToken(customerId: "304903007"))
     }
 
     func testPerformanceExample() {
