@@ -3,12 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		F679517E24059BD20003B006 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F679517D24059BD20003B006 /* Manager.swift */; };
-		F679519A2405CBE60003B006 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F67951992405CBE60003B006 /* Alamofire */; };
 		F6872DED23FC577600E66AA9 /* NHPPSDKEXAMPLE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6872DE323FC577600E66AA9 /* NHPPSDKEXAMPLE.framework */; };
 		F6872DF223FC577600E66AA9 /* NHPPSDKEXAMPLETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6872DF123FC577600E66AA9 /* NHPPSDKEXAMPLETests.swift */; };
 		F6872DF423FC577600E66AA9 /* NHPPSDKEXAMPLE.h in Headers */ = {isa = PBXBuildFile; fileRef = F6872DE623FC577600E66AA9 /* NHPPSDKEXAMPLE.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -70,7 +69,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F679519A2405CBE60003B006 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,7 +191,6 @@
 			);
 			name = NHPPSDKEXAMPLE;
 			packageProductDependencies = (
-				F67951992405CBE60003B006 /* Alamofire */,
 			);
 			productName = NHPPSDKEXAMPLE;
 			productReference = F6872DE323FC577600E66AA9 /* NHPPSDKEXAMPLE.framework */;
@@ -266,7 +263,6 @@
 			);
 			mainGroup = F6872DD923FC577600E66AA9;
 			packageReferences = (
-				F67951982405CBE60003B006 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = F6872DE423FC577600E66AA9 /* Products */;
 			projectDirPath = "";
@@ -676,25 +672,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		F67951982405CBE60003B006 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = exactVersion;
-				version = 5.0.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		F67951992405CBE60003B006 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F67951982405CBE60003B006 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F6872DDA23FC577600E66AA9 /* Project object */;
 }
