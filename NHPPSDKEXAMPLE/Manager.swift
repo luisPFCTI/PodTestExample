@@ -1,68 +1,55 @@
 import Foundation
 
-public class Response {
-    var requestID: String
-    var returnCode: String
-    init(requestID: String, returnCode: String) {
-        self.requestID = requestID
-        self.returnCode = returnCode
+struct Response: Codable {
+    let requestID: String
+    let returnCode: String
+    init(with dictionary: [String: Any]?) {
+        self.requestID = dictionary!["requestID"] as! String
+        self.returnCode = dictionary!["returnCode"] as! String
     }
 }
 
+enum HTTPError: LocalizedError {
+    case statusCode
+    case post
+}
 
 class NHPPConnectionManager {
     public func activateToken(customerId: String) -> Bool {
-        return getActivationToken(customerId: customerId)
-    }
-    
-    private func getActivationToken(customerId: String) -> Bool {
         var isOK = false
-            self.activateToken(customerId: customerId, onSuccess: { response in
-                if response?.returnCode == "00" {
-                    isOK = true
-                }
-            }, onError: { error in
-                if error?.returnCode != "00" {
-                    isOK = false
-                }
-            })
+        let data = activateTkn(customerId: customerId)
+        do {
+            let jsonResult = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String: Any]
+            let response = Response(with: jsonResult!)
+            if response.returnCode == "00" {
+                isOK = true
+            }
+        } catch {
+            print("Error: \(error.localizedDescription)")
+        }
         return isOK
     }
     
-    private func activateToken(customerId: String, onSuccess
-    successBlock: ((Response?) -> Void)!,
-                       onError errorBlock: ((Response?) -> Void)!) {
+    private func activateTkn(customerId: String) -> Data {
         let url = URL(string: "https://proxybilletera-cert.pfcti.com/activetoken")!
         var request = URLRequest(url: url)
+        var dataReceived: Data?
+        let semaphore = DispatchSemaphore(value: 0)
+        request.httpMethod = "POST"
         request.setValue("584d7d57364049548c2381c7aa651f7d", forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
         request.setValue("true", forHTTPHeaderField: "Ocp-Apim-Trace")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            defer {
+                semaphore.signal()
+            }
             if let error = error {
                 fatalError("Error: \(error.localizedDescription)")
-                successBlock(Response(requestID: "requestId" ?? "", returnCode: "99" ?? ""))
             }
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                fatalError("Error: invalid HTTP response code")
-                successBlock(Response(requestID: "requestId" ?? "", returnCode: "00" ?? ""))
-            }
-            guard let data = data else {
-                fatalError("Error: missing response data")
-                successBlock(Response(requestID: "requestId" ?? "", returnCode: "00" ?? ""))
-            }
-
-            do {
-//                let decoder = JSONDecoder()
-//                let posts = try decoder.decode([Post].self, from: data)
-//                print(posts.map { $0.title })
-                print(data)
-                successBlock(Response(requestID: "requestId" ?? "", returnCode: "00" ?? ""))
-            }
-            catch {
-                print("Error: \(error.localizedDescription)")
-                successBlock(Response(requestID: "requestId" ?? "", returnCode: "99" ?? ""))
-            }
+            dataReceived = data
         }
         task.resume()
+        semaphore.wait()
+        return dataReceived!
     }
 }
