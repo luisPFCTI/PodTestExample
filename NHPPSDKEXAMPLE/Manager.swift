@@ -1,6 +1,6 @@
 import Foundation
 
-struct Response: Codable {
+public struct Response: Codable {
     let requestID: String
     let returnCode: String
     init(with dictionary: [String: Any]?) {
@@ -14,20 +14,23 @@ enum HTTPError: LocalizedError {
     case post
 }
 
-class NHPPConnectionManager {
-    public func activateToken(customerId: String) -> Bool {
-        var isOK = false
+public class NHPPConnectionManager {
+    public init() {}
+    public func activateToken(customerId: String,onSuccess successBlock: ((Response) -> Void)!, onError errorBlock: ((Response?) -> Void)!, onFail failBlock: ((String?) -> Void)!)  {
         let data = activateTkn(customerId: customerId)
         do {
             let jsonResult = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String: Any]
             let response = Response(with: jsonResult!)
             if response.returnCode == "00" {
-                isOK = true
+                successBlock(response)
+            } else {
+                errorBlock(response)
             }
+            debugPrint(response)
         } catch {
             print("Error: \(error.localizedDescription)")
+            failBlock(error.localizedDescription)
         }
-        return isOK
     }
     
     private func activateTkn(customerId: String) -> Data {

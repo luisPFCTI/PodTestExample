@@ -14,7 +14,18 @@ class NHPPSDKEXAMPLETests: XCTestCase {
     }
 
     func testExample() {
-        XCTAssert(nhppManager.activateToken(customerId: "304903007"))
+        var res = false
+        nhppManager.activateToken(customerId: "304900307", onSuccess: { response in
+            res = true
+            XCTAssert(res)
+        }, onError: { response in
+            res = false
+            XCTAssert(res)
+        }, onFail: { error in
+            res = false
+            XCTAssert(res)
+        })
+        
     }
 
     func testPerformanceExample() {
