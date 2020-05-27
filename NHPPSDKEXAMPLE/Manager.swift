@@ -82,7 +82,7 @@ class DeeplinkParser {
 }
 
 let Deeplinker = DeepLinkManager()
-class DeepLinkManager {
+public class DeepLinkManager {
    fileprivate init() {}
    private var deeplinkType: DeeplinkType?
 
