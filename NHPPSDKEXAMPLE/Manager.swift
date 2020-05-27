@@ -83,10 +83,10 @@ class DeeplinkParser {
 
 let Deeplinker = DeepLinkManager()
 public class DeepLinkManager {
-   fileprivate init() {}
+    init() {}
    private var deeplinkType: DeeplinkType?
 
-    func checkDeepLink() {
+    public func checkDeepLink() {
        guard let deeplinkType = deeplinkType else {
           return
        }
