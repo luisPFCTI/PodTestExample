@@ -56,3 +56,59 @@ public class NHPPConnectionManager {
         return dataReceived!
     }
 }
+
+enum DeeplinkType {
+   case request(id: String)
+}
+
+class DeeplinkParser {
+   static let shared = DeeplinkParser()
+   private init() { }
+    func parseDeepLink(_ url: URL) -> DeeplinkType? {
+       guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true), let host = components.host else {
+          return nil
+       }
+       var pathComponents = components.path.components(separatedBy: "/")
+       // the first component is empty
+       pathComponents.removeFirst()
+       switch host {
+       case "openApp2":
+        return DeeplinkType.request(id: url.absoluteString)
+       default:
+          break
+       }
+       return nil
+    }
+}
+
+let Deeplinker = DeepLinkManager()
+class DeepLinkManager {
+   fileprivate init() {}
+   private var deeplinkType: DeeplinkType?
+
+    func checkDeepLink() {
+       guard let deeplinkType = deeplinkType else {
+          return
+       }
+       DeeplinkNavigator.shared.proceedToDeeplink(deeplinkType)
+       // reset deeplink after handling
+       self.deeplinkType = nil // (1)
+    }
+    
+   // check existing deepling and perform action
+   @discardableResult
+   func handleDeeplink(url: URL) -> Bool {
+      deeplinkType = DeeplinkParser.shared.parseDeepLink(url)
+      return deeplinkType != nil
+   }
+}
+
+class DeeplinkNavigator {
+   static let shared = DeeplinkNavigator()
+   private init() { }
+   
+   func proceedToDeeplink(_ type: DeeplinkType) {
+   }
+}
+
+
