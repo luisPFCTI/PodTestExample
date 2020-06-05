@@ -6,11 +6,9 @@ open class CustomSceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     open func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         for context in URLContexts {
-            print("url: \(context.url.absoluteURL)")
-            print("scheme: \(context.url.scheme)")
-            print("host: \(context.url.host)")
-            print("path: \(context.url.path)")
-            print("components: \(context.url.pathComponents)")
+            if (context.url.host == "openApp2") {
+                deeplinker.handleDeeplink(url: context.url)
+            }
         }
     }
 }
