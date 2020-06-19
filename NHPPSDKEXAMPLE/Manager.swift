@@ -65,12 +65,11 @@ public enum DeeplinkType {
 class DeeplinkParser {
     static let shared = DeeplinkParser()
     private init() { }
-    func parseDeepLink(_ url: URL) -> DeeplinkType? {
+    func parseDeepLink(_ url: URL) -> DeeplinkType {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true), let host = components.host else {
-            return nil
+            return DeeplinkType.none
         }
         var pathComponents = components.path.components(separatedBy: "/")
-        // the first component is empty
         pathComponents.removeFirst()
         switch host {
         case "openApp2":
@@ -78,19 +77,18 @@ class DeeplinkParser {
         default:
             break
         }
-        return nil
+        return DeeplinkType.none
     }
 }
 
-let deeplinker = DeepLinkManager()
+public let deeplinker = DeepLinkManager()
 public class DeepLinkManager {
     public init() {}
     private var deeplinkType: DeeplinkType?
     
     public func checkDeepLink() -> DeeplinkType {
-        let dlType = deeplinkType
-        self.deeplinkType = nil
-        return dlType!
+        guard let dlType = deeplinkType else { return DeeplinkType.none }
+        return dlType
     }
     
     // check existing deepling and perform action
